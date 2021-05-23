@@ -30,6 +30,9 @@ export class CaseListComponent implements OnInit {
   }
 
   updateStatus(id: number){
-    this.caseService.updateStatus(id).subscribe();
+    this.caseService.updateStatus(id).subscribe(data => {
+      this.ngOnInit();
+    });
+    
   }
 }

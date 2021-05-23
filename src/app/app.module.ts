@@ -7,21 +7,21 @@ import { CaseListComponent } from './case-list/case-list.component';
 import { from } from 'rxjs';
 import { CreateCaseComponent } from './create-case/create-case.component';
 import { FormsModule} from '@angular/forms';
-import { UpdateCaseComponent } from './update-case/update-case.component'
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CaseListComponent,
-    CreateCaseComponent,
-    UpdateCaseComponent
+    CreateCaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxMaskModule.forRoot()
   ],
   providers: [],

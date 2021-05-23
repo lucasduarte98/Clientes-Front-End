@@ -1,67 +1,84 @@
-<div class ="col-md-6 offset-md-3">
-<h3> Cadastrar Clientes </h3>
-<form (ngSubmit) = "onSubmit()">
+<form (ngSubmit) = "onSubmit()" class="card-body g-3" [formGroup]="formCliente">
+    <h3> {{id ? "Alterar Cliente" : "Cadastrar Cliente"}}</h3>
+    <div class="row form-group">
+        <div class="col-md-8">
+            <label>Nome</label>
+            <input type="text" class ="form-control" id="name"
+            formControlName = "name" name = "name">
+            <small class="text-danger"
+                *ngIf="formCliente.controls['name'].invalid && (formCliente.controls['name'].dirty || formCliente.controls['name'].touched)">
+                Nome é obrigatório
+           </small>
+        </div>
 
-    <div class="form-group">
-        <label>Nome</label>
-        <input type="text" class ="form-control" id="name"
-        [(ngModel)] = "case.name" name = "name">
+        <div class="col-md-4">
+            <label>CPF/CNPJ</label>
+            <input mask="CPF_CNPJ" type="text" class ="form-control " id="cpfCnpj"
+            formControlName = "cpfCnpj" name = "cpfCnpj">
+            <small class="text-danger"
+                  *ngIf="formCliente.controls['cpfCnpj'].invalid && (formCliente.controls['cpfCnpj'].dirty || formCliente.controls['cpfCnpj'].touched)">
+                  CPF/CNPJ é obrigatório
+            </small>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>CPF/CNPJ</label>
-        <input mask="CPF_CNPJ" type="text" class ="form-control" id="cpfCnpj"
-        [(ngModel)] = "case.cpfCnpj" name = "cpfCnpj">
+    <div class="row form-group">
+        <div class="col-md-8">
+            <label>Endereco</label>
+            <input type="text" class ="form-control" id="endereco"
+            formControlName = "endereco" name = "endereco">
+        </div>
+
+        <div class="col-md-4">
+            <label>Numero</label>
+            <input type="text" class ="form-control" id="numero"
+            formControlName = "numero" name = "numero">
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Endereco</label>
-        <input type="text" class ="form-control" id="endereco"
-        [(ngModel)] = "case.endereco" name = "endereco">
+    <div class="form-group row">
+        <div class="col-md-8">
+            <label>Cidade</label>
+            <input type="text" class ="form-control" id="cidade"
+            formControlName = "cidade" name = "cidade">
+        </div>
+
+        <div class="col-md-4">
+            <label>CEP</label>
+            <input mask="00000-000" type="text" class ="form-control" id="cep"
+            formControlName = "cep" name = "cep">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-10">
+            <label>Bairro</label>
+            <input type="text" class ="form-control" id="bairro"
+            formControlName = "bairro" name = "bairro">
+        </div>
+       
+        <div class="col-md-2">
+            <label>UF</label>
+            <input type="text" class ="form-control" id="uf"
+            formControlName = "uf" mask="AA" name = "uf">
+        </div>
+    </div> 
+
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label>Telefone</label>
+            <input mask="(00)00000-0000" type="text" class ="form-control" id="telefone"
+            formControlName = "telefone" name = "telefone">
+            <!-- <div [hidden]="telefone.invalid" class="alert alert-danger"> O Nome é Obrigatório </div> -->
+        </div>
+
+        <div class="col-md-6">
+            <label>Email</label>
+            <input type="text" class ="form-control" id="email"
+            formControlName = "email" name = "email">
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Numero</label>
-        <input type="text" class ="form-control" id="numero"
-        [(ngModel)] = "case.numero" name = "numero">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+        <button type="submit" class="btn btn-primary" [disabled]="formCliente.invalid">{{id ? "Atualizar" : "Salvar"}}</button>
     </div>
-
-    <div class="form-group">
-        <label>Bairro</label>
-        <input type="text" class ="form-control" id="bairro"
-        [(ngModel)] = "case.bairro" name = "bairro">
-    </div>
-
-    <div class="form-group">
-        <label>CEP</label>
-        <input mask="00000-000" type="text" class ="form-control" id="cep"
-        [(ngModel)] = "case.cep" name = "cep">
-    </div>
-
-    <div class="form-group">
-        <label>Cidade</label>
-        <input type="text" class ="form-control" id="cidade"
-        [(ngModel)] = "case.cidade" name = "cidade">
-    </div>
-
-    <div class="form-group">
-        <label>UF</label>
-        <input type="text" class ="form-control" id="uf"
-        [(ngModel)] = "case.uf" name = "uf">
-    </div>
-
-    <div class="form-group">
-        <label>Telefone</label>
-        <input mask="(00)00000-0000" type="text" class ="form-control" id="telefone"
-        [(ngModel)] = "case.telefone" name = "telefone">
-    </div>
-
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" class ="form-control" id="email"
-        [(ngModel)] = "case.email" name = "email">
-    </div>
-
-    <button class="btn btn-success" type ="submit">Confirmar</button>
 </form>
-</div>
