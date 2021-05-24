@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CaseListComponent } from './case-list/case-list.component';
+import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { from } from 'rxjs';
-import { CreateCaseComponent } from './create-case/create-case.component';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { FormsModule} from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,8 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    CaseListComponent,
-    CreateCaseComponent
+    ClienteListComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,
